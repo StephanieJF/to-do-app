@@ -21,12 +21,20 @@ function onReady() {
     toDos.forEach(function(toDo) {
       var newLi = document.createElement('li');
       var checkbox = document.createElement('input');
+      var delButton = document.createElement('button');
       checkbox.type = "checkbox";
 
       newLi.innerHTML = toDo.title;
 
+      delButton.textContent = "Remove To-Do";
+
       todoList.appendChild(newLi);
       newLi.appendChild(checkbox);
+      newLi.appendChild(delButton);
+
+      delButton.addEventListener('click', function(event) {
+        newLi.remove();
+      });
     });
   }
 
